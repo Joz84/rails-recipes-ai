@@ -2,6 +2,11 @@
   <p>
     <strong>Name:</strong>
     <%= recipe.name %>
+    <ul>
+      <% recipe.ingredients.each do |ingredient| %>
+        <li><%= ingredient.title %> <%= link_to "destroy", ingredient, data: { "turbo-method": :delete }  %></li>
+      <% end %>
+    </ul>
   </p>
 
 </div>

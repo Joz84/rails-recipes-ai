@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :recipes
-  root to: "pages#home"
+  resources :recipes do
+    resources :ingredients, only: [:create, :destroy] , shallow: true
+  end
+  root to: "recipes#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
